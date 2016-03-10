@@ -5,8 +5,11 @@ class Devstep < Formula
   version "1.0.0"
   sha256 "6de2152ef3a2d4e6c1976e6d6b99635919fd94954d3f38280333425ce2245753"
 
+  bottle :unneeded
+
   def install
-    fail 'Unable to install'
+    mv "darwin_amd64", "devstep"
+    bin.install "devstep"
   end
 
   test do
