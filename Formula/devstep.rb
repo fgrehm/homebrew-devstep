@@ -12,6 +12,13 @@ class Devstep < Formula
     bin.install "devstep"
   end
 
+  def caveats; <<-EOS.undent
+    WARNING: OSX support is experimental and has only been tested with VMs created
+    by dinghy (https://github.com/codekitchen/dinghy) using docker-machine's xhyve
+    driver (https://github.com/zchee/docker-machine-driver-xhyve)
+    EOS
+  end
+
   test do
     system "devstep", "--version"
   end
