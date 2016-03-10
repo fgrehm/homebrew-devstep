@@ -10,6 +10,10 @@ class Devstep < Formula
   def install
     mv "darwin_amd64", "devstep"
     bin.install "devstep"
+
+    # Pretty hacky, but does the trick for now
+    system 'sh', '-c', "curl -sL https://github.com/codegangsta/cli/raw/master/autocomplete/bash_autocomplete | sed 's/$PROG/devstep/' > devstep-completion.bash"
+    bash_completion.install "devstep-completion.bash"
   end
 
   def caveats; <<-EOS.undent
